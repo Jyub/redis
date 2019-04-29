@@ -1,6 +1,7 @@
 package com.example.redis.service;
 
 import com.example.redis.entity.Car;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.NoRepositoryBean;
 
 /**
@@ -14,5 +15,6 @@ public interface CarService {
 
     void save(Car car);
 
+    @Cacheable(cacheNames = "cars")
     Car get(String name);
 }
